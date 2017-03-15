@@ -1,0 +1,25 @@
+name: slack
+version: 0.0.1
+description: Integration with Slack
+
+config:
+  API_KEY:
+    description: Slack Bot API Key
+    required: true
+  BOT_ID:
+    description: Slack Bot ID
+    required: true
+
+endpoints:
+  webhook:
+    description: Receive updates from Slack
+    file: scripts/webhook.js
+  send-msg:
+    description: Send message to Slack channel
+    file: scripts/send-msg.js
+    private: true
+
+event_handlers:
+  events.slack-send-msg:
+    description: Hello world!
+    file: scripts/send-msg.js

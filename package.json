@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "slack": "^8.2.2",
+    "syncano-server": "beta"
+  }
+}
