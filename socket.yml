@@ -18,8 +18,26 @@ endpoints:
     description: Send message to Slack channel
     file: scripts/send-msg.js
     private: true
+    parameters:
+      text:
+        type: string
+        description: Content of the message to send
+        example: This is my example massage!
+      channel:
+        type: string
+        description: Slack channel
+        example: 'C024BE91L'
 
 event_handlers:
   events.slack-send-msg:
-    description: Hello world!
+    description: Handling sending message to Slack channel
     file: scripts/send-msg.js
+      parameters:
+        text:
+          type: string
+          description: Content of the message to send
+          example: This is my example massage!
+        channel:
+          type: string
+          description: Slack channel
+          example: 'C024BE91L'
