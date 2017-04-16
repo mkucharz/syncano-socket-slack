@@ -49,27 +49,27 @@ regenerator-runtime@^0.10.0:
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.3.tgz#8c4367a904b51ea62a908ac310bf99ff90a82a3e"
 
 slack@^8.2.2:
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/slack/-/slack-8.2.2.tgz#2931162e21d0b6215e4e303364d8ca330eba8b96"
+  version "8.2.7"
+  resolved "https://registry.yarnpkg.com/slack/-/slack-8.2.7.tgz#7a795a3e5e8482d64075aae88e11f04f29358ba1"
   dependencies:
-    tiny-json-http "^1.0.3"
-    ws "^1.1.1"
+    tiny-json-http "^5.1.0"
+    ws "^1.1.4"
 
 syncano-server@beta:
-  version "0.7.2-29"
-  resolved "https://registry.yarnpkg.com/syncano-server/-/syncano-server-0.7.2-29.tgz#bb752decba54f889b8399241f30fbedeb7d8e3e0"
+  version "0.7.2-44"
+  resolved "https://registry.yarnpkg.com/syncano-server/-/syncano-server-0.7.2-44.tgz#19c1980b112db0b34d2c50dc7b86a98431379878"
   dependencies:
     node-fetch "2.0.0-alpha.3"
 
-tiny-json-http@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/tiny-json-http/-/tiny-json-http-1.0.3.tgz#1b0601d8514cd10f7d5e6c2a4ab52d3b68784843"
+tiny-json-http@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/tiny-json-http/-/tiny-json-http-5.1.0.tgz#ac8fe99082c1511b86467940275c872e53087fbb"
 
 ultron@1.0.x:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.0.2.tgz#ace116ab557cd197386a4e88f4685378c8b2e4fa"
 
-ws@^1.1.1:
+ws@^1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/ws/-/ws-1.1.4.tgz#57f40d036832e5f5055662a397c4de76ed66bf61"
   dependencies:

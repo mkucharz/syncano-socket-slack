@@ -2,23 +2,51 @@ name: slack
 version: 0.0.1
 description: Integration with Slack
 
+classes:
+  slack_team:
+    - name: access_token
+      type: string
+    - name: scope
+      type: array
+    - name: user_id
+      type: string
+    - name: team_name
+      type: string
+    - name: team_id
+      type: string
+    - name: bot
+      type: reference
+      target: slack_bot
+  slack_bot:
+    - name: bot_user_id
+      type: string
+    - name: bot_access_token
+      type: string
+
 config:
-  API_KEY:
-    description: Slack Bot API Key
+  CLIENT_ID:
+    description: Slack App Client ID
     required: true
-  BOT_ID:
-    description: Slack Bot ID
+  CLIENT_SECRET:
+    description: Slack App Client Secret
     required: true
 
 endpoints:
   webhook:
     description: Receive updates from Slack
     file: scripts/webhook.js
+  auth:
+    description: Receive and handle auth request from Slack
+    file: scripts/auth.js
   send-msg:
     description: Send message to Slack channel
     file: scripts/send-msg.js
     private: true
     parameters:
+      team_id:
+        type: string
+        description: ID of the Slack team
+        example: 'T026V3L9S'
       text:
         type: string
         description: Content of the message to send
@@ -29,15 +57,19 @@ endpoints:
         example: 'C024BE91L'
 
 event_handlers:
-  events.slack-send-msg:
+  events.send-msg:
     description: Handling sending message to Slack channel
     file: scripts/send-msg.js
-      parameters:
-        text:
-          type: string
-          description: Content of the message to send
-          example: This is my example massage!
-        channel:
-          type: string
-          description: Slack channel
-          example: 'C024BE91L'
+    parameters:
+      team_id:
+        type: string
+        description: ID of the Slack team
+        example: 'T026V3L9S'
+      text:
+        type: string
+        description: Content of the message to send
+        example: This is my example massage!
+      channel:
+        type: string
+        description: Slack channel
+        example: 'C024BE91L'
