@@ -1,17 +1,24 @@
 import slack from 'slack';
-console.log(ARGS)
-console.log("XXX", CONFIG.API_KEY)
+import { response, logger, event, data } from 'syncano-server'
 
-// slack.chat.postMessage({
-//   token: CONFIG.API_KEY,
-//   channel: ARGS.event.channel,
-//   text: ARGS.event.text
-// }, (err, data) => {
-//   console.log(err, data)
-// })
+const { debug } = logger('send-msg.js');
 
-// slack.users.list({
-//   token: CONFIG.API_KEY
-// }, (err, data) => {
-//   console.log(err, data)
-// })
+data.slack_team
+  .where('team_id', 'eq', ARGS.team_id)
+  .with('bot')
+  .firstOrFail()
+  .then(slackTeam => {
+    debug(slackTeam)
+    slack.chat.postMessage({
+      token: slackTeam.bot.access_token,
+      channel: ARGS.channel,
+      text: ARGS.text
+    }, (err, data) => {
+      debug('Error:', err)
+      debug('Data:', err)
+      if (err) {
+        return response(err, 400);
+      }
+      return response('', 204);
+    })
+  })

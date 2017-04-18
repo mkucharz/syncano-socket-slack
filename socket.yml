@@ -14,6 +14,7 @@ classes:
       type: string
     - name: team_id
       type: string
+      filter_index: true
     - name: bot
       type: reference
       target: slack_bot
@@ -57,7 +58,7 @@ endpoints:
         example: 'C024BE91L'
 
 event_handlers:
-  events.send-msg:
+  events.message-send:
     description: Handling sending message to Slack channel
     file: scripts/send-msg.js
     parameters:
